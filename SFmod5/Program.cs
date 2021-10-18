@@ -62,28 +62,27 @@ namespace SFmod5
             }
             return arg;
         }
-        static void ShowCortezh((string, string, int, bool, string[], int, string[]) Cort)
+        static void ShowCortezh((string Name, string Surname, int Age, bool HavePet, string[] PetName, int FavColorsCount, string[] FavColor) Cort)
         {
-            Console.WriteLine("Ваше имя: " + Cort.Item1);
-            Console.WriteLine("Ваша фамилия: " + Cort.Item2);
-            Console.WriteLine("Ваш возраст: " + Cort.Item3);
-            if (Cort.Item4)
+            Console.WriteLine("Ваше имя: " + Cort.Name);
+            Console.WriteLine("Ваша фамилия: " + Cort.Surname);
+            Console.WriteLine("Ваш возраст: " + Cort.Age);
+            if (Cort.HavePet)
             {
                 Console.WriteLine("У вас есть домашние животные. Их имена:");
-                for (int i = 0; i < Cort.Item5.Length; i++)
-                    Console.Write(Cort.Item5[i] + ", ");
+                for (int i = 0; i < Cort.PetName.Length; i++)
+                    Console.Write(Cort.PetName[i] + ", ");
                 Console.WriteLine();
             }
             else
                 Console.WriteLine("У вас нет домашних животных");
-            Console.WriteLine("У вас {0} любимых цвета:", Cort.Item6);
-            for(int i = 0; i < Cort.Item6; i ++)
-                Console.Write(Cort.Item7[i] + ", ");
+            Console.WriteLine("У вас {0} любимых цвета:", Cort.FavColorsCount);
+            for(int i = 0; i < Cort.FavColorsCount; i ++)
+                Console.Write(Cort.FavColor[i] + ", ");
         }
         static void Main(string[] args)
         {
-            (string, string, int, bool, string[], int, string[]) Cort = CreateCortezh();
-            ShowCortezh(Cort);
+            ShowCortezh(CreateCortezh());
         }
     }
 }
